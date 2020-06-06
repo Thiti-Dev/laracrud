@@ -1,4 +1,7 @@
 <!--Navbar-->
+{{-- @if (Request::is('create'))
+    <h1>kuy</h1>
+@endif --}}
 <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
     <!-- Navbar brand -->
@@ -15,13 +18,19 @@
 
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
         <a class="nav-link" href="{{url('/')}}">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/create')}}">Add New</a>
+        <li class="nav-item {{ Request::is('create') || Request::is('edit/*') ? 'active' : '' }}">
+          <a class="nav-link" href="{{url('/create')}}">
+            @if (Request::is('edit/*'))
+                Edit
+            @else
+                Add new
+            @endif
+            </a>
         </li>
 
       </ul>
