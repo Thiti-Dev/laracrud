@@ -55,4 +55,9 @@ class StudentController extends Controller
         $student = Students::find($id);
         return view('edit',compact('student'));
     }
+
+    public function delete($id){
+        Students::find($id)->delete();
+        return redirect(route('home'))->with('successMsg',"Student id:$id Successfully Deleted");
+    }
 }
