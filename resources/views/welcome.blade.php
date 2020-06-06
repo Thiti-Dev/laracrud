@@ -29,7 +29,7 @@
                 <td>{{$student->email}}</td>
                 <td>{{$student->phone}}</td>
                 <td>
-                    <a class="btn btn-raised btn-primary btn-sm" href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ||
+                <a class="btn btn-raised btn-primary btn-sm" href="{{ route('edit',$student->id) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ||
                     <a class="btn btn-raised btn-danger btn-sm" href=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>
             </tr>
             @endforeach
